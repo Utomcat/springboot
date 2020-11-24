@@ -1,15 +1,10 @@
-package thinkinginspringboot.firstappbyapi;
+package thinking.in.spring.boot.config;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.context.WebServerInitializedEvent;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.EventListener;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
@@ -19,29 +14,17 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
 /**
- * @author ranyk
+ * ClassName:WebConfiguration
+ * Description:配置类
+ *
+ * @author ranyi
+ * @date 2020-11-23 23:03
+ * Version: V1.0
  */
 @Slf4j
-@RestController
-//@SpringBootApplication //same as @Configuration @ComponentScan @EnableAutoConfiguration
-@Configuration
-@ComponentScan
-@EnableAutoConfiguration
-public class FirstAppByApiApplication  {
-
-    public static void main(String[] args) {
-        SpringApplication.run(FirstAppByApiApplication.class, args);
-    }
-
-    @GetMapping("/")
-    public String defaultIndex(){
-        return "redirect:index";
-    }
-
-    @GetMapping("/index")
-    public String index(){
-        return "hello world!";
-    }
+//@Configuration
+@SpringBootApplication
+public class WebConfiguration {
 
     @Bean
     public RouterFunction<ServerResponse> hellWorld(){
@@ -59,6 +42,4 @@ public class FirstAppByApiApplication  {
     public void onWebServerReady(WebServerInitializedEvent event){
         log.error("当前 WebServer 实现类为: " + event.getWebServer().getClass().getName());
     }
-
-
 }
