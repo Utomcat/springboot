@@ -3,9 +3,9 @@ package thinking.in.spring.boot.config;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.context.WebServerInitializedEvent;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.EventListener;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -24,8 +24,8 @@ import static org.springframework.web.reactive.function.server.ServerResponse.ok
  * Version: V1.0
  */
 @Slf4j
-//@Configuration
-@SpringBootApplication
+@Configuration
+//@SpringBootApplication
 //@EnableAutoConfiguration
 // 使用 @EnableAutoConfiguration 注解和使用 @SpringBootApplication 注解的不同之处在于
 // @EnableAutoConfiguration 没有 EnhancerBySpringCGLIB

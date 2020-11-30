@@ -1,0 +1,3 @@
+#配置自动装配属性及属性值
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  thinking.in.spring.boot.autoconfigure.WebAutoConfiguration
